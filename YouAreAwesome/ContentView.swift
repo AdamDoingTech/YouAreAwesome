@@ -12,6 +12,8 @@ struct ContentView: View {
     
     var body: some View {
        VStack {
+           Spacer()
+           
             Text(messageString)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
@@ -23,6 +25,10 @@ struct ContentView: View {
                 .border(.orange, width: 1)
                 .padding()
             
+           
+            Spacer()
+           
+           
             HStack {
                 // First Button
                 Button("Awesome") {
@@ -39,6 +45,7 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
             }
 //            .border(.pink, width: 5)
+            .padding()
         }
     }
 }
