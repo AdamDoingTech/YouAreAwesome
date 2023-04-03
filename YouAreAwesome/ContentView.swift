@@ -15,46 +15,38 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
-                        
-                    Spacer()
-                        
-                    Text(messageString)
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
-                        .minimumScaleFactor(0.5)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.orange)
-                        .frame(height: 150)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                    
-                    Spacer()
-                    
-                    HStack {
-                        // First Button
-                        Button("Awesome") {
-                            // This is action prefromend when the button is pressed.
-                            messageString = "You Are Awesome!"
-                            
-                        }
-                        .buttonStyle(.borderedProminent)
-                        
-                        Spacer()
-                        
-                        // Second Button
-                        Button("Great") {
-                            // This is action prefromend when the button is pressed.
-                            messageString = "You Are Great!"
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
+                
+                Spacer()
+                
+                Text(messageString)
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.orange)
+                    .frame(height: 150)
+                    .frame(maxWidth: .infinity)
                     .padding()
+                
+                Spacer()
+                
+                Button("Show Message") {
+                    let message1 = "You Are Awesome!"
+                    let message2 = "You Are Great!"
                     
+                    if messageString == message1 {
+                        messageString = message2
+                    } else {
+                        messageString = message1
+                    }
+                }
+                .buttonStyle(.borderedProminent)
             }
+            .padding()
         }
-    } 
-    
+    }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
