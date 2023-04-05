@@ -7,6 +7,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var messageString = ""
+    @State private var imageName = ""
     
     var body: some View {
         ZStack {
@@ -15,6 +16,13 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
+                
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(30)
+                    .shadow(radius: 30)
+                    .padding()
                 
                 Spacer()
                 
@@ -33,8 +41,11 @@ struct ContentView: View {
                 Button("Show Message") {
                     let message1 = "You Are Awesome!"
                     let message2 = "You Are Great!"
+                    let imageName4 = "image4"
+                    let imageName0 = "image0"
                     
                     messageString = (messageString == message1 ? message2 : message1)
+                    imageName = (imageName == imageName4 ? imageName0 : imageName4)
                 }
                 .buttonStyle(.borderedProminent)
             }
