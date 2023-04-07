@@ -8,6 +8,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var messageString = ""
     @State private var imageName = ""
+    @State private var imageNumber = 0
+    @State private var messageNumber = 0
     
     var body: some View {
         ZStack {
@@ -39,13 +41,27 @@ struct ContentView: View {
                 Spacer()
                 
                 Button("Show Message") {
-                    let message1 = "You Are Awesome!"
-                    let message2 = "You Are Great!"
-                    let imageName4 = "image4"
-                    let imageName0 = "image0"
+                    let messageArray = ["You Are Great!",
+                                        "You Are Awesome!",
+                                        "You Are Sweet!",
+                                        "You Are Nice!",
+                                        "You Are Smart!"]
                     
-                    messageString = (messageString == message1 ? message2 : message1)
-                    imageName = (imageName == imageName4 ? imageName0 : imageName4)
+                    
+                    
+                    
+                    messageString = messageArray[messageNumber]
+                    messageNumber = messageNumber + 1
+                    if messageNumber == messageArray.count {
+                        messageNumber = 0
+                    }
+                    
+                    imageName = "image\(imageNumber)"
+                    imageNumber = imageNumber + 1
+                    
+                    if imageNumber > 8 {
+                        imageNumber = 0
+                    }
                 }
                 .buttonStyle(.borderedProminent)
             }
