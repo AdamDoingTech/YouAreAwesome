@@ -47,21 +47,9 @@ struct ContentView: View {
                                         "You Are Nice!",
                                         "You Are Smart!"]
                     
-                    
-                    
-                    
-                    messageString = messageArray[messageNumber]
-                    messageNumber = messageNumber + 1
-                    if messageNumber == messageArray.count {
-                        messageNumber = 0
-                    }
-                    
-                    imageName = "image\(imageNumber)"
-                    imageNumber = imageNumber + 1
-                    
-                    if imageNumber > 8 {
-                        imageNumber = 0
-                    }
+                    messageString = messageArray[Int.random(in: 0...messageArray.count-1)]
+                                    //Added .count-1 because .count counts to 5 instead of counting to 4 only.
+                    imageName = "image\(Int.random(in: 0...8))"
                 }
                 .buttonStyle(.borderedProminent)
             }
